@@ -1,4 +1,4 @@
-<% project_name = 'full-stack-laundromat-project' %>
+<% project_name = 'laundromat-backend-api' %>
 
 default: &default
   adapter: postgresql
