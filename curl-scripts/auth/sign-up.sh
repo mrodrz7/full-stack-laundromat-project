@@ -6,9 +6,9 @@ curl "http://localhost:4741/sign-up" \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
-      "first_name": "'"${FIRST}"'"
-      "last_name": "'"${LAST}"'"
-      "phone_number": "'"${PHONE}"'"
+      "first_name": "'"${FIRST}"'",
+      "last_name": "'"${LAST}"'",
+      "phone_number": "'"${PHONE}"'",
       "email": "'"${EMAIL}"'",
       "password": "'"${PASSWORD}"'",
       "password_confirmation": "'"${PASSWORD}"'"
