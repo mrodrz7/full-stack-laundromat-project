@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   resources :dropoffs, except: %i[new edit]
+  resources :users, except: %i[new edit]
   # RESTful routes
   resources :examples, except: %i[new edit]
 
