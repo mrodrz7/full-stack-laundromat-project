@@ -5,7 +5,6 @@ class CreateDropoffs < ActiveRecord::Migration[5.2]
       t.string :load_type
       t.boolean :picked_up
 
-
       t.timestamps
     end
   end
