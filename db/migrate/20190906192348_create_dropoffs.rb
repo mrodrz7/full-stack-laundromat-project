@@ -3,7 +3,7 @@ class CreateDropoffs < ActiveRecord::Migration[5.2]
     create_table :dropoffs do |t|
       t.date :date_dropping_off
       t.string :load_type
-      t.boolean :picked_up
+      t.string :note
 
       t.timestamps
     end

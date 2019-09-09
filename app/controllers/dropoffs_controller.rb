@@ -1,4 +1,4 @@
-class DropoffsController < ApplicationController
+class DropoffsController < ProtectedController
   before_action :set_dropoff, only: [:show, :update, :destroy]
 
   # GET /dropoffs
@@ -15,8 +15,8 @@ class DropoffsController < ApplicationController
 
   # POST /dropoffs
   def create
-    @dropoff = Dropoff.new(dropoff_params)
-
+    # @dropoff = Dropoff.new(dropoff_params)
+      @dropoff = current_user.dropoffs.build(dropoff_params)
     if @dropoff.save
       render json: @dropoff, status: :created, location: @dropoff
     else
@@ -26,6 +26,7 @@ class DropoffsController < ApplicationController
 
   # PATCH/PUT /dropoffs/1
   def update
+    @dropoff = current_user.dropoffs.find(params[:id])
     if @dropoff.update(dropoff_params)
       render json: @dropoff
     else
@@ -35,6 +36,7 @@ class DropoffsController < ApplicationController
 
   # DELETE /dropoffs/1
   def destroy
+    @dropoff = current_user.dropoffs.find(params[:id])
     @dropoff.destroy
   end
 
@@ -46,6 +48,8 @@ class DropoffsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def dropoff_params
-      params.require(:dropoff).permit(:date_dropping_off, :load_type, :picked_up)
+      params.require(:dropoff).permit(
+        :date_dropping_off, :load_type, :note
+      )
     end
 end
