@@ -2,5 +2,9 @@
 
 class User < ApplicationRecord
   include Authentication
-  has_many :examples
+  has_many :dropoffs
+
+  def editable
+    scope == object.user
+  end
 end

@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_193603) do
   create_table "dropoffs", force: :cascade do |t|
     t.date "date_dropping_off"
     t.string "load_type"
-    t.boolean "picked_up"
+    t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
