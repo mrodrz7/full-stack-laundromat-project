@@ -3,8 +3,7 @@ class DropoffsController < ProtectedController
 
   # GET /dropoffs
   def index
-    @dropoffs = Dropoff.all
-
+    @dropoffs = current_user.dropoffs.all
     render json: @dropoffs
   end
 
